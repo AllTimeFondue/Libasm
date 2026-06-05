@@ -66,11 +66,11 @@ all: ${NAME}
 
 ${NAME} : ${OBJECTS}
 	@ar -rcs ${NAME} ${OBJECTS}
-	@echo "${COLOUR_GREEN}\33[2K\nLibasm compiled\n${COLOUR_END}"
+	@echo -e "${COLOUR_GREEN}\33[2K\nLibasm compiled\n${COLOUR_END}"
 
 ${NAME_BONUS} : ${OBJECTS_BONUS} ${OBJECTS}
 	@ar -rcs ${NAME_BONUS} ${OBJECTS_BONUS} ${OBJECTS}
-	@echo "${COLOUR_GREEN}\33[2K\nLibasm bonus compiled\n${COLOUR_END}"
+	@echo -e "${COLOUR_GREEN}\33[2K\nLibasm bonus compiled\n${COLOUR_END}"
 
 ${OBJECTS_PATH}%.o:	${SOURCES_PATH}%.s
 	@mkdir -p ${OBJECTS_PATH}
@@ -87,7 +87,7 @@ clean:
 fclean: 
 	@rm -rf ${NAME} ${NAME_BONUS} ${OBJECTS_PATH} ${OBJECTS_PATH_BONUS}
 	@rm -rf mandatory bonus
-	@echo "${COLOUR_GREEN}libasm cleaned\n${COLOUR_END}"
+	@echo -e "${COLOUR_GREEN}libasm cleaned\n${COLOUR_END}"
 
 re: fclean all
 
